@@ -2,10 +2,14 @@ const countdown = document.getElementById('countdown');
 const listNum = document.getElementById('numbers-list');
 const instruction = document.getElementById('instructions');
 const answer = document.getElementById('answers-form');
+const inputNum = document.querySelectorAll('form-control')
+const btn = document.querySelector('.btn');
+const message = document.getElementById('message');
 
 let second = 5;
 let timeout = second*1000;
 const numbers = [];
+
 
 countdown.innerText = second;
 
@@ -37,6 +41,30 @@ for(let i=0; i<numbers.length; i++){
     li.append(numbers[i]);
     listNum.appendChild(li);
 }
+
+btn.addEventListener('click', function(event){
+    event.preventDefault();
+
+    const ans = [];
+
+    for(let i=0; i<5; i++){
+        ans.push(document.querySelector(`input:nth-child(${i+1})`).value);
+    }
+    console.log(ans);
+
+    let right = 0;
+
+    for(let i=0; i<ans.length; i++){
+        for(j=0; j<numbers.length; j++){
+            if(ans[i]==numbers[j]){
+                right++;
+            }
+        }
+    }
+
+    message.innerText = `Hai indovinato ${right} numeri`;
+
+})
 
 
 
