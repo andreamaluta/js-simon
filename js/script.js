@@ -3,6 +3,7 @@ const listNum = document.getElementById('numbers-list');
 const instruction = document.getElementById('instructions');
 
 let second = 5;
+let timeout = second*1000;
 const numbers = [];
 
 countdown.innerText = second;
@@ -15,6 +16,8 @@ const clock = setInterval(function(){
         clearInterval(clock);
         countdown.innerText = '0';
         instruction.innerText = "Inserisci tutti i numeri che ricordi (l'ordine non è importante)";
+        listNum.classList.add('d-none');
+        
     }
 
     second--;
@@ -33,3 +36,4 @@ for(let i=0; i<numbers.length; i++){
     li.append(numbers[i]);
     listNum.appendChild(li);
 }
+
