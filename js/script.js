@@ -25,3 +25,9 @@ for(let i = 0; i<5; i++){
 }
 
 console.log(numbers);
+
+for(let i=0; i<numbers.length; i++){
+    const li = document.createElement('li');
+    li.append(numbers[i]);
+    listNum.appendChild(li);
+}
