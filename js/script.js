@@ -1,5 +1,6 @@
 const countdown = document.getElementById('countdown');
 const listNum = document.getElementById('numbers-list');
+const instruction = document.getElementById('instructions');
 
 let second = 5;
 const numbers = [];
@@ -12,7 +13,8 @@ const clock = setInterval(function(){
         countdown.innerText = second;
     }else{
         clearInterval(clock);
-        countdown.innerText = '';
+        countdown.innerText = '0';
+        instruction.innerText = "Inserisci tutti i numeri che ricordi (l'ordine non è importante)";
     }
 
     second--;
