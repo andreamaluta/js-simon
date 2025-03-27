@@ -6,7 +6,7 @@ const inputNum = document.querySelectorAll('form-control')
 const btn = document.querySelector('.btn');
 const message = document.getElementById('message');
 
-let second = 5;
+let second = 10;
 let timeout = second*1000;
 const numbers = [];
 
@@ -53,16 +53,19 @@ btn.addEventListener('click', function(event){
     console.log(ans);
 
     let right = 0;
+    let check = "";
 
     for(let i=0; i<ans.length; i++){
         for(j=0; j<numbers.length; j++){
             if(ans[i]==numbers[j]){
                 right++;
+                check+=ans[i] + ", ";
+                break;
             }
         }
     }
 
-    message.innerText = `Hai indovinato ${right} numeri`;
+    message.innerText = `Hai indovinato ${right} numeri che sono ${check}`;
 
 })
 
